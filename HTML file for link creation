@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Open YahanHun</title>
+  <script>
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const userId = params.get("userId");
+      const lat = params.get("lat");
+      const lon = params.get("lon");
+
+      if (userId && lat && lon) {
+        const appLink = `yahanhun://track?userId=${userId}&lat=${lat}&lon=${lon}`;
+        window.location.href = appLink;
+      } else {
+        document.body.innerHTML = "<h2>Invalid or missing parameters.</h2>";
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>Redirecting to YahanHun app...</p>
+</body>
+</html>
